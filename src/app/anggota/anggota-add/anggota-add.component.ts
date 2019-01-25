@@ -48,11 +48,10 @@ export class AnggotaAddComponent implements OnInit {
     anggotaModel.alamat = this.anggotaForm.get('alamat').value;
     console.log(anggotaModel);
     this.anggotaAdd.emit(anggotaModel);
-    this.anggotaForm.reset();
     this.anggotaService.tambahAnggota(anggotaModel).subscribe(data => {
       alert(data.nama + 'berhasil disimpan dengan ID ' + data.id);
       });
-    window.location.reload();
+    window.location.assign('/anggota');
   }
 
   cekIsEmpty(control: FormControl): { [s: string]: boolean } {
