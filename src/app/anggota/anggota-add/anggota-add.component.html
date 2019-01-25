@@ -1,0 +1,47 @@
+<div class="container">
+  <form id="form-group" [formGroup]="anggotaForm" (ngSubmit)="addAnggota()">
+    <div class="col-sm-12">
+      <div class="form-row align-items-center">
+        <div class="col-sm-3">
+          <label class="sr-only">Nama Anggota</label>
+          <input type="text"  class="form-control mb-2" [formControlName]="'nama'" id="nama" placeholder="Nama Anggota" >
+          <span *ngIf="!anggotaForm.get('nama').valid && anggotaForm.get('nama').touched" class="help-block">
+          <span *ngIf="anggotaForm.get('nama').errors['required']">
+              Wajib Diisi!
+            </span>
+            <span *ngIf="anggotaForm.get('nama').errors['blank']">
+              Tidak Boleh Kosong!
+            </span>
+          </span>
+        </div>
+        <div class="col-sm-4">
+          <label class="sr-only">Nomor KTP</label>
+          <input type="text" class="form-control mb-2" [formControlName]="'nomor_ktp'" id="nomor_ktp" placeholder="Nomor KTP" >
+          <span *ngIf="!anggotaForm.get('nomor_ktp').valid && anggotaForm.get('nomor_ktp').touched" class="help-block">
+            <span *ngIf="anggotaForm.get('nomor_ktp').errors['required']">
+              Wajib Diisi!
+            </span>
+            <span *ngIf="anggotaForm.get('nomor_ktp').errors['blank']">
+              Tidak Boleh Kosong!
+            </span>
+          </span>
+        </div>
+        <div class="col-sm-4">
+          <label class="sr-only">Alamat</label>
+          <textarea name="alamat" class="form-control mb-2" [formControlName]="'alamat'" id="alamat" placeholder="alamat" ></textarea>
+          <span *ngIf="!anggotaForm.get('alamat').valid && anggotaForm.get('alamat').touched" class="help-block">
+            <span *ngIf="anggotaForm.get('alamat').errors['required']">
+              Wajib Diisi!
+            </span>
+            <span *ngIf="anggotaForm.get('alamat').errors['blank']">
+              Tidak Boleh Kosong!
+            </span>
+          </span>
+        </div>
+        <div class="col-sm-1">
+          <button type="submit"  class="btn btn-primary btn-block mb-2" [disabled]="!anggotaForm.valid">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
