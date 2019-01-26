@@ -12,6 +12,9 @@ import { AnggotaComponent } from './anggota/anggota.component';
 import { AnggotaListComponent } from './anggota/anggota-list/anggota-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AnggotaAddComponent } from './anggota/anggota-add/anggota-add.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { AnggotaAddComponent } from './anggota/anggota-add/anggota-add.component
     BukuListComponent,
     AnggotaComponent,
     AnggotaListComponent,
-    AnggotaAddComponent
+    AnggotaAddComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { AnggotaAddComponent } from './anggota/anggota-add/anggota-add.component
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -70,6 +70,7 @@ export class AnggotaAddComponent implements OnInit {
         this.parentTalk = data.id;
       });
     }
+    this.anggotaForm.reset();
   }
 
   cekIsEmpty(control: FormControl): { [s: string]: boolean } {
