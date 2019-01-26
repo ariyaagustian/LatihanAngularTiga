@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {AnggotaService} from '../anggota.service';
 import {AnggotaModel} from '../anggota.model';
 
@@ -8,10 +8,12 @@ import {AnggotaModel} from '../anggota.model';
   styleUrls: ['./anggota-list.component.css'],
   providers: [AnggotaService]
 })
-export class AnggotaListComponent implements OnInit {
+export class AnggotaListComponent implements OnInit, OnChanges {
 
   constructor(private anggotaService: AnggotaService) { }
 
+  @Input() childListen: string;
+  @Output() dariChildParent = new EventEmitter<string>();
   anggotaList: AnggotaModel[];
 
   ngOnInit() {
@@ -20,6 +22,12 @@ export class AnggotaListComponent implements OnInit {
       this.anggotaList = data;
 
     });
+  }
+  ngOnChanges() {
+    this.ngOnInit();
+  }
+  showname(id) {
+    this.dariChildParent.emit(id);
   }
 
 }
